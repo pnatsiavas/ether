@@ -1,0 +1,341 @@
+# baseURI: http://med.auth.gr/lomi/ether-schema
+# imports: http://qudt.org/1.1/vocab/dimensionalunit
+# imports: http://www.w3.org/2003/01/geo/wgs84_pos
+# imports: http://www.w3.org/2004/02/skos/core
+
+@prefix : <http://med.auth.gr/lomi/ether-schema#> .
+@prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://med.auth.gr/lomi/ether-schema>
+  rdf:type owl:Ontology ;
+  owl:imports <http://qudt.org/1.1/vocab/dimensionalunit> ;
+  owl:imports <http://www.w3.org/2003/01/geo/wgs84_pos> ;
+  owl:imports <http://www.w3.org/2004/02/skos/core> ;
+  owl:versionInfo "Created with TopBraid Composer"^^xsd:string ;
+.
+:AirPollutant
+  rdf:type owl:Class ;
+  rdfs:label "Air pollutant"^^xsd:string ;
+  rdfs:subClassOf :Pollutant ;
+  skos:exactMatch <http://dbpedia.org/resource/Air_pollutant> ;
+.
+:AirPollutionLevels
+  rdf:type owl:Class ;
+  rdfs:label "Air pollution levels"^^xsd:string ;
+  rdfs:subClassOf owl:Thing ;
+  skos:broadMatch <http://dbpedia.org/page/Air_quality_index> ;
+.
+:AirPollutionMeasurement
+  rdf:type owl:Class ;
+  rdfs:label "Air pollution measurement"^^xsd:string ;
+  rdfs:subClassOf owl:Thing ;
+.
+:AirPollutionNumericalMeasurement
+  rdf:type owl:Class ;
+  rdfs:label "Air pollution numerical measurement"^^xsd:string ;
+  rdfs:subClassOf :AirPollutionMeasurement ;
+.
+:AirPollutionQualityEstimate
+  rdf:type owl:Class ;
+  rdfs:label "Air pollution quality estimate"^^xsd:string ;
+  rdfs:subClassOf :AirPollutionMeasurement ;
+.
+:AverageDailyMeasurement
+  rdf:type owl:Class ;
+  rdfs:label "Average daily measurement"^^xsd:string ;
+  rdfs:subClassOf :AirPollutionNumericalMeasurement ;
+.
+:CarbonMonoxide
+  rdf:type :AirPollutant ;
+  :PollutantSymbol "CO"^^xsd:string ;
+  rdfs:label "Carbon monoxide"^^xsd:string ;
+  skos:exactMatch <http://dbpedia.org/resource/Carbon_Monoxide> ;
+.
+:CityHall
+  rdf:type :MeasuringStation ;
+  :establishedInYear "1990"^^xsd:gYear ;
+  :stationBelongsToNetwork :ThessalonikiMunicipalAirPollutionMeasurementNetwork ;
+  rdfs:comment """Μετεωρολογικός Σταθμός του Δημαρχείου, Α΄ Δημοτικό διαμέρισμα (Έναρξη λειτουργίας 1990, Υψόμετρο 43m από επιφ. Θάλασσας, Ελάχ. Απόσταση από Θάλασσα 650 m)
+Ο Σταθμός αυτός είναι εγκαταστημένος στο δώμα του Δημαρχείου. Για την μέτρηση της έντασης και της διεύθυνσης του ανέμου στο σταθμό αυτό χρησιμοποιείται διανυσματικός ανεμογράφος. Ο σταθμός βρίσκεται σε απόσταση 650 m από την παραλία και έχει ελεύθερη πρόσβαση προς την θάλασσα, μέσω της οδού Βενιζέλου. Η δεκάχρονη λειτουργία του σταθμού αυτού έδειξε, ότι καταγράφει με ακρίβεια τους ανέμους του νότιου τομέα, αλλά υστερεί στην ακριβή καταγραφή των ανέμων του βόρειου τομέα, λόγω της αυξανόμενης κλίσης του εδάφους και της πυκνής δόμησης με υψηλά κτίρια, που παρατηρείται στις βορειοανατολικότερες του σημείου εγκατάστασης του σταθμού περιοχές της πόλης."""^^xsd:string ;
+  rdfs:label "Stathmos Dimarchiou"^^xsd:string ;
+  geo:location [
+      rdf:type geo:Point ;
+      :altMSL "43"^^xsd:string ;
+      :minimumDistanceFromSea "650"^^xsd:float ;
+      geo:lat "40.637737"^^xsd:string ;
+      geo:long "22.942048"^^xsd:string ;
+    ] ;
+.
+:Egnatias
+  rdf:type :MeasuringStation ;
+  :establishedInYear "1989"^^xsd:gYear ;
+  :stationBelongsToNetwork :ThessalonikiMunicipalAirPollutionMeasurementNetwork ;
+  rdfs:comment """Σταθμός Δημαρχείου ή Σταθμός Εγνατίας  Βενιζέλου, Α Δημοτικό Διαμέρισμα (Έναρξη λειτουργίας 1989, Υψόμετρο 12m από επιφ. Θάλασσας, Ελάχ. Απόσταση από Θάλασσα 650 m).
+Ο Σταθμός αυτός βρίσκεται στη συμβολή του κυριότερου από πολεοδομικής και κυκλοφοριακής άποψης οδικού άξονα της Θεσσαλονίκης, που είναι ο άξονας Εγνατίας  Μοναστηρίου, στο τμήμα που παρουσιάζει το μεγαλύτερο κυκλοφοριακό φόρτο (από πλατεία Δημοκρατίας έως Aγίας Σοφίας) και της οδού Βενιζέλου, που συνδέει το Λιμάνι της Θεσσαλονίκης με την Άνω Πόλη και θεωρείται ο σημαντικότερος εμπορικός κάθετος άξονας της πόλης στην αγορά της Θεσσαλονίκης. Η απόσταση του σταθμού από το Λιμάνι είναι 800 m (σε ευθεία γραμμή). Σε μια πόλη με μονοκεντρική δομή όπως η Θεσσαλονίκη, η περιοχή εγκατάστασης του σταθμού αυτού θεωρείται εκτός από Εμπορικό, Διοικητικό, Επιχειρηματικό και Οικονομικό κέντρο της πόλης. Στην κεντρική αυτή περιοχή συναντώνται τα υψηλότερα κτίρια του πολεοδομικού συγκροτήματος της Θεσσαλονίκης. Η εξέλιξη, που παρατηρείται στη χρήση γης στην περιοχή, είναι μια τάση εκτόπισης της κατοικίας σε όφελος του τριτογενούς τομέα (γραφεία). Η συμβολή του σταθμού της Εγνατίας στο δίκτυο ελέγχου ατμοσφαιρικής ρύπανσης της πόλης είναι να καταγράφει τις μέγιστες συγκεντρώσεις ατμοσφαιρικής ρύπανσης για όλους τους άλλους ρύπους, πλην του όζοντος και ταυτόχρονα να προειδοποιεί έγκαιρα για επικείμενο επεισόδιο ατμοσφαιρικής ρύπανσης. Έτσι, οι τιμές του σταθμού αυτού χρησιμοποιούνται σαν «βαρόμετρο» των βραχυπρόθεσμων εξελίξεων του ατμοσφαιρικού περιβάλλοντος της Θεσσαλονίκης."""^^xsd:string ;
+  rdfs:label "Stathmos Egnatias"^^xsd:string ;
+  geo:location [
+      rdf:type geo:Point ;
+      :altMSL "12"^^xsd:string ;
+      :minimumDistanceFromSea "650"^^xsd:float ;
+      geo:lat "40.636982"^^xsd:string ;
+      geo:long "22.941959"^^xsd:string ;
+    ] ;
+.
+:Eptapyrgiou
+  rdf:type :MeasuringStation ;
+  :establishedInYear "1992"^^xsd:gYear ;
+  :stationBelongsToNetwork :ThessalonikiMunicipalAirPollutionMeasurementNetwork ;
+  rdfs:comment """Σταθμός Επταπυργίου, Γ Δημοτικό Διαμέρισμα (Έναρξη λειτουργίας 1992, Υψόμετρο 174m από επιφ. Θάλασσας, Ελάχ. Απόσταση από Θάλασσα 2400 m).
+Ο Σταθμός αυτός είναι εγκατεστημένος στα όρια του Δήμου Θεσσαλονίκης και του Δήμου Συκεών, στην κορυφογραμμή ενός λόφου, στη συμβολή των οδών Αγράφων και Αγ. Αναστασίας στην Άνω Πόλη (εντός των τειχών της παλιάς, ιστορικής Θεσσαλονίκης). Η θέση εγκατάστασης του σταθμού δεσπόζει του Πολεοδομικού Συγκροτήματος Θεσσαλονίκης (Π.Σ.Θ.), με άνοιγμα και θέα προς τη βιομηχανική περιοχή της Θεσσαλονίκης, που βρίσκεται σε απόσταση 12 περίπου χιλιομέτρων από το σταθμό. Παράλληλα, ο σταθμός του Επταπυργίου διαθέτει το πλεονέκτημα να μην επηρεάζεται άμεσα από καμία αξιόλογη πηγή ατμοσφαιρικής ρύπανσης (οι οδοί Αγράφων και Αγ. Αναστασίας είναι δρόμοι εξυπηρέτησης των περιοίκων με αμελητέο κυκλοφοριακό φόρτο). Η πλησιέστερη αξιόλογη πηγή ρύπανσης είναι η περιφερειακή οδός της Θεσσαλονίκης που βρίσκεται σε απόσταση 1300 m από τον σταθμό. Η χρήση γης στην περιοχή εξυπηρετεί αποκλειστικά την κατοικία, με χαμηλά κτίρια (διώροφα, το πολύ τριώροφα) και κατά συνέπεια η περιοχή διαθέτει έναν από τους χαμηλότερους δείκτες πυκνοκατοίκησης του Π.Σ.Θ. Η Άνω Πόλη είναι χαρακτηρισμένη παραδοσιακός οικισμός και έχει ειδικούς όρους και περιορισμούς δόμησης για νέες οικοδομές. Ο σταθμός του Επταπυργίου λόγω του σχετικά μεγάλου ύψους εγκατάστασής του βρίσκεται πάνω από τις χαμηλές θερμοκρασιακές αναστροφές και επηρεάζεται λιγότερο από το έντονο ανάγλυφο της δομημένης αστικής περιοχής της πόλης. Ο σταθμός του Επταπυργίου προσδιόριζε αρχικά και συνεχίζει και σήμερα, τα χαμηλότερα επίπεδα ατμοσφαιρικής ρύπανσης στα οποία εκτίθεται ο πληθυσμός της Θεσσαλονίκης. Με τη μετεξέλιξη όμως της ατμοσφαιρικής ρύπανσης, από αναγωγική (τύπου Λονδίνου) σε οξειδωτική (τύπου Λος Άντζελες), που παρατηρείται τον τελευταίο καιρό, ο σταθμός αυτός, μαζί με το σταθμό της Τούμπας, ο οποίος ακολουθεί ανάλογη πορεία, καταγράφει ταυτόχρονα τις υψηλότερες συγκεντρώσεις όζοντος (δείκτη της φωτοχημικής ρύπανσης) που εμφανίζονται στο Πολεοδομικό Συγκρότημα της Θεσσαλονίκης."""^^xsd:string ;
+  rdfs:label "Stathmos Eptapyrgiou"^^xsd:string ;
+  geo:location [
+      rdf:type geo:Point ;
+      :altMSL "174"^^xsd:string ;
+      :minimumDistanceFromSea "2400"^^xsd:float ;
+      geo:lat "40.644180"^^xsd:string ;
+      geo:long "22.958474"^^xsd:string ;
+    ] ;
+.
+:High
+  rdf:type :AirPollutionLevels ;
+  :airPollutionLevelIsBetterThan :VeryHigh ;
+  rdfs:label "High"^^xsd:string ;
+  rdfs:label "Αυξημένα@el"^^xsd:string ;
+.
+:Lagkada
+  rdf:type :MeasuringStation ;
+  :establishedInYear "1992"^^xsd:gYear ;
+  :stationBelongsToNetwork :ThessalonikiMunicipalAirPollutionMeasurementNetwork ;
+  rdfs:comment """Σταθμός Λαγκαδά, Β Δημοτικό Διαμέρισμα (Έναρξη λειτουργίας 1992, Υψόμετρο 18 m από επιφ. Θάλασσας. Ελαχ. Απόσταση από Θάλασσα 2100 m)
+Ο Σταθμός αυτός είναι εγκατεστημένος στη συμβολή των οδών Λαγκαδά και Κουτηφάρη στο κέντρο της Δυτικής Θεσσαλονίκης, στα όρια των Δήμων Θεσσαλονίκης, Νεάπολης, Αμπελοκήπων και Σταυρούπολης. Η οδός Λαγκαδά από πολεοδομικής άποψης είναι η σημαντικότερη οδική αρτηρία της Δυτικής Θεσσαλονίκης. Παράλληλα η οδός αυτή αποτελεί έξοδο της πόλης προς την Ανατ. Μακεδονία - Θράκη και εξυπηρετεί τις υπεραστικές και εμπορικές μεταφορές. Μελλοντικά, η οδός Λαγκαδά θα αποτελέσει τη συντομότερη πρόσβαση προσωπικού και εμπορευμάτων από τη Θεσσαλονίκη προς την εθνική οδό Εγνατία, που θα διασχίζει τη Βόρεια Ελλάδα. Στο κυκλοφοριακό φόρτο της οδού Λαγκαδά, η συμβολή των πετρελαιοκίνητων οχημάτων είναι σαφώς μεγαλύτερη από εκείνη που παρατηρείται στο κέντρο της πόλης (σταθμός Δημαρχείου). Ο Σταθμός της Λαγκαδά βρίσκεται επίσης σε απόσταση επιρροής (1000 m) από το Σιδηροδρομικό Σταθμό της Θεσσαλονίκης, το σημαντικότερο σιδηροδρομικό κόμβο της χώρας. Η Δυτική Θεσσαλονίκη, στο κέντρο της οποίας είναι εγκατεστημένος ο σταθμός της Λαγκαδά είναι η περιοχή της πόλης, στην οποία εντοπίζονται οι σημαντικότερες πηγές ατμοσφαιρικής ρύπανσης. Τόσο η βαριά βιομηχανία (ΕΚΟ, SICNG κλπ), όσο και η μεσαία και μικρή βιομηχανία και βιοτεχνία, έχουν προτιμήσει την εγκατάστασή τους στις παρυφές της Δυτικής Θεσσαλονίκης, επωφελούμενες από την εγγύτητα του εργατικού δυναμικού, των προμηθευτών  πελατών, το σχετικά χαμηλό κόστος γης, τη μικρή απόσταση από το λιμάνι και τέλος τη γρήγορη πρόσβαση, τόσο στο σιδηροδρομικό όσο και στο εθνικό οδικό δίκτυο. Ο Σταθμός της Λαγκαδά είναι εγκατεστημένος σε έναν από τους ελάχιστους ελεύθερους χώρους, που διαθέτει σήμερα η Δυτική Θεσσαλονίκη, ανάμεσα σε δύο νεκροταφεία (Συμμαχικά νεκροταφεία Ζεϊντελίκ και νεκροταφείο Αγ. Παρασκευής). Οι συγκεντρώσεις ατμοσφαιρικής ρύπανσης, που παρατηρούνται στο σταθμό αυτό, έρχονται σε δεύτερη θέση αμέσως μετά τις τιμές του Κέντρου (σταθμός Εγνατίας Βενιζέλου). """^^xsd:string ;
+  rdfs:label "Stathmos Lagkada"^^xsd:string ;
+  geo:location [
+      rdf:type geo:Point ;
+      :altMSL "18"^^xsd:string ;
+      :minimumDistanceFromSea "2100"^^xsd:float ;
+      geo:lat "40.652365"^^xsd:string ;
+      geo:long "22.935153"^^xsd:string ;
+    ] ;
+.
+:Low
+  rdf:type :AirPollutionLevels ;
+  :airPollutionLevelIsBetterThan :Medium ;
+  rdfs:label "Low"^^xsd:string ;
+  rdfs:label "Χαμηλά@el"^^xsd:string ;
+.
+:Martiou
+  rdf:type :MeasuringStation ;
+  :establishedInYear "1990"^^xsd:gYear ;
+  :stationBelongsToNetwork :ThessalonikiMunicipalAirPollutionMeasurementNetwork ;
+  rdfs:comment """ Σταθμός 25ης Μαρτίου, Ε Δημοτικό Διαμέρισμα (Έναρξη λειτουργίας 1990, Υψόμετρο 12 m από επιφ. Θάλασσας. Ελάχ. Απόσταση από Θάλασσα 1100 m)
+ Ο Σταθμός αυτός είναι εγκατεστημένος στη συμβολή των οδών 25ης Μαρτίου και Καρακάση στο κέντρο περίπου της Ανατολικής Θεσσαλονίκης, εάν συνυπολογίσουμε σε αυτήν και το Δήμο Καλαμαριάς. Η οδός 25η Μαρτίου ανήκει στο δευτερεύον αστικό οδικό δίκτυο της Θεσσαλονίκης. Η οδός αυτή είναι ένας κάθετος δρόμος (δύο λωρίδων κυκλοφορίας) με μέτριο κυκλοφοριακό φόρτο, που συνδέει δύο κύριους οδικούς άξονες που διασχίζουν κατά μήκος την πόλη, τις λεωφόρους Βασ. Όλγας και Καραμανλή (Νέα Εγνατία). Η οδός Καρακάση, στο σημείο εγκατάστασης του σταθμού, σύμφωνα με το γενικό πολεοδομικό σχέδιο της Θεσσαλονίκης είναι ένας υπό διάνοιξη πεζόδρομος που θα ενώνει τις πλατείες Πατρικιού και Καλούδη, με αμελητέο σήμερα κυκλοφοριακό φόρτο. Τα οχήματα που κυκλοφορούν στην περιοχή είναι κυρίως βενζινοκίνητα. Από οικιστικής άποψης η περιοχή χαρακτηρίζεται σαν γενική κατοικία με διάσπαρτες επαγγελματικές χρήσεις, λιανικού κυρίως εμπορίου. Τα επίπεδα ρύπανσης, που παρατηρούνται στο σταθμό της 25ης Μαρτίου, είναι κάπου στη μέση, συγκρινόμενα με τα υψηλότερα των σταθμών της Εγνατίας και Λαγκαδά και τα χαμηλότερα των περιφερειακών σταθμών του Επταπυργίου και της Τούμπας. Ο ρόλος του Σταθμού της 25ης Μαρτίου στο Δημοτικό Δίκτυο είναι να προσεγγίζει, τα μέσα επίπεδα ρύπανσης, στα οποία εκτίθεται ο γενικός πληθυσμός της Θεσσαλονίκης. Ο σταθμός αυτός βρίσκεται σε απόσταση 1100 m από την ακτή και έχει ελεύθερη πρόσβαση προς τη θάλασσα, μέσω της οδού 25ης Μαρτίου."""^^xsd:string ;
+  rdfs:label "Stathmos 25is Martiou"^^xsd:string ;
+  geo:location [
+      rdf:type geo:Point ;
+      :altMSL "12"^^xsd:string ;
+      :minimumDistanceFromSea "1100"^^xsd:float ;
+      geo:lat "40.601088"^^xsd:string ;
+      geo:long "22.960279"^^xsd:string ;
+    ] ;
+.
+:MaximumHourlyMeasurement
+  rdf:type owl:Class ;
+  rdfs:label "Maximum hourly measurement"^^xsd:string ;
+  rdfs:subClassOf :AirPollutionNumericalMeasurement ;
+.
+:MeasuringStation
+  rdf:type owl:Class ;
+  rdfs:label "Measuring station"^^xsd:string ;
+  rdfs:subClassOf owl:Thing ;
+.
+:MeasuringStationNetwork
+  rdf:type owl:Class ;
+  rdfs:label "Measuring station network"^^xsd:string ;
+  rdfs:subClassOf owl:Thing ;
+.
+:Medium
+  rdf:type :AirPollutionLevels ;
+  :airPollutionLevelIsBetterThan :High ;
+  rdfs:label "Medium"^^xsd:string ;
+  rdfs:label "Μέτρια@el"^^xsd:string ;
+.
+:Microgram
+  rdf:type qudt:MassUnit ;
+  rdf:type qudt:SIDerivedUnit ;
+  qudt:abbreviation "μg"^^xsd:string ;
+  qudt:conversionMultiplier "0.000000001"^^xsd:double ;
+  qudt:conversionOffset "0.0"^^xsd:double ;
+  qudt:quantityKind <http://qudt.org/vocab/quantity#Mass> ;
+  qudt:symbol "μg"^^xsd:string ;
+  rdfs:label "Microgram	"^^xsd:string ;
+.
+:MicrogramPerCubicMeter
+  rdf:type qudt:DerivedUnit ;
+  rdf:type qudt:MassPerVolumeUnit ;
+  rdf:type qudt:SIDerivedUnit ;
+  qudt:abbreviation "μg/m^3"^^xsd:string ;
+  qudt:conversionMultiplier "0.000000001"^^xsd:double ;
+  qudt:conversionOffset "0.0"^^xsd:double ;
+  qudt:quantityKind <http://qudt.org/vocab/quantity#Density> ;
+  qudt:symbol "μg/m^3"^^xsd:string ;
+  rdfs:label "Microgram per Cubic Meter"^^xsd:string ;
+.
+:Milligram
+  rdf:type qudt:MassUnit ;
+  rdf:type qudt:SIDerivedUnit ;
+  qudt:abbreviation "mg"^^xsd:string ;
+  qudt:conversionMultiplier "0.000001"^^xsd:double ;
+  qudt:conversionOffset "0.0"^^xsd:double ;
+  qudt:quantityKind <http://qudt.org/vocab/quantity#Mass> ;
+  qudt:symbol "mg"^^xsd:string ;
+  rdfs:label "Milligram"^^xsd:string ;
+.
+:MilligramPerCubicMeter
+  rdf:type qudt:DerivedUnit ;
+  rdf:type qudt:MassPerVolumeUnit ;
+  rdf:type qudt:SIDerivedUnit ;
+  qudt:abbreviation "mg/m^3"^^xsd:string ;
+  qudt:conversionMultiplier "0.000001"^^xsd:double ;
+  qudt:conversionOffset "0.0"^^xsd:double ;
+  qudt:quantityKind <http://qudt.org/vocab/quantity#Density> ;
+  qudt:symbol "mg/m^3"^^xsd:string ;
+  rdfs:label "Milligram per Cubic Meter"^^xsd:string ;
+.
+:NitrogenDioxide
+  rdf:type :AirPollutant ;
+  :PollutantSymbol "NO2"^^xsd:string ;
+  rdfs:label "Nitrogen dioxide"^^xsd:string ;
+  skos:exactMatch <http://dbpedia.org/resource/Nitrogen_Dioxide> ;
+.
+:Ozone
+  rdf:type :AirPollutant ;
+  :PollutantSymbol "O3"^^xsd:string ;
+  rdfs:label "Ozone"^^xsd:string ;
+  skos:exactMatch <http://dbpedia.org/resource/Ozone> ;
+.
+:PM10
+  rdf:type :AirPollutant ;
+  :PollutantSymbol "PM10"^^xsd:string ;
+  rdfs:label "PM10"^^xsd:string ;
+  skos:exactMatch <http://dbpedia.org/resource/PM_10> ;
+.
+:Pollutant
+  rdf:type owl:Class ;
+  rdfs:label "Pollutant"^^xsd:string ;
+  rdfs:subClassOf owl:Thing ;
+.
+:PollutantSymbol
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain :Pollutant ;
+  rdfs:label "Pollutant symbol"^^xsd:string ;
+  rdfs:range xsd:string ;
+.
+:Severe
+  rdf:type :AirPollutionLevels ;
+  rdfs:label "Severe"^^xsd:string ;
+  rdfs:label "Πολύ Υψηλά@el"^^xsd:string ;
+.
+:SulphurDioxide
+  rdf:type :AirPollutant ;
+  :PollutantSymbol "SO2"^^xsd:string ;
+  rdfs:label "Sulphur dioxide"^^xsd:string ;
+  skos:exactMatch <http://dbpedia.org/resource/Sulfur_dioxide> ;
+.
+:ThessalonikiMunicipalAirPollutionMeasurementNetwork
+  rdf:type :MeasuringStationNetwork ;
+  rdfs:label "Thessaloniki municipal air pollution measurement network"^^xsd:string ;
+.
+:Toumpas
+  rdf:type :MeasuringStation ;
+  :establishedInYear "1995"^^xsd:gYear ;
+  :stationBelongsToNetwork :ThessalonikiMunicipalAirPollutionMeasurementNetwork ;
+  rdfs:comment """Σταθμός Τούμπας, Δ Δημοτικό Διαμέρισμα (Έναρξη λειτουργίας 1995, Υψόμετρο 76 m από επιφ. Θάλασσας. Ελάχ. Απόσταση από Θάλασσα 2650 m).
+Ο Σταθμός αυτός είναι εγκατεστημένος στα όρια του Δήμου Θεσσαλονίκης με το Δήμο Πυλαίας (προάστιο της Θεσσαλονίκης), στη συμβολή των οδών Γρηγ. Λαμπράκη και Περραιβού. Η οδός Γρηγ. Λαμπράκη είναι ένας δρόμος που ανήκει στο κύριο αστικό οδικό δίκτυο της Θεσσαλονίκης, έχει μέτριο κυκλοφοριακό φόρτο και χρησιμοποιείται κυρίως από βενζινοκίνητα οχήματα. Η οδός Περραιβού είναι ένας δρόμος με ασήμαντο κυκλοφοριακό φόρτο, στο σημείο εγκατάστασης του σταθμού (αρχή δρόμου). Από οικιστικής άποψης, η περιοχή έχει χαρακτήρα αστικού προαστίου και εξυπηρετεί αποκλειστικά την κατοικία, σε μεσαίου ύψους κτίρια με πυλωτές και πρασιές. Το Πάρκο-Δάσος του Κέδρηνου Λόφου (Δάσος Σεϊχ  Σου) 30.000 στρεμμάτων βρίσκεται σε απόσταση 50 μέτρων από το σταθμό και αποτελεί όριο οικιστικής ανάπτυξης της πόλης προς την πλευρά του δάσους. Η περιφερειακή οδός της Θεσσαλονίκης, διερχόμενη από τις παρυφές του Πάρκου-Δάσους, προσεγγίζει το σταθμό σε απόσταση 80 μέτρων. Η απόσταση του σταθμού από τη θάλασσα είναι 2650 μέτρα (σε ευθεία γραμμή). Τα επίπεδα ρύπανσης που εμφανίζονται στην περιοχή είναι χαμηλά συγκρινόμενα με τα αντίστοιχα των άλλων σταθμών. Έτσι, σε σύνολο πέντε σταθμών του Δημοτικού Δικτύου, ο σταθμός της Τούμπας κατατάσσεται στην τέταρτη θέση σε ό,τι αφορά τα επίπεδα ρύπανσης που παρατηρούνται στην περιοχή του. Ενδιαφέρον παρουσιάζουν οι υψηλές τιμές όζοντος (δείκτης φωτοχημικής ρύπανσης), που παρατηρούνται τα τελευταία χρόνια στο σταθμό της Τούμπας, φαινόμενο που εμφανίζεται, όπως έχει ήδη αναφερθεί και στο σταθμό του Επταπυργίου."""^^xsd:string ;
+  rdfs:label "Stathmos Toumpas"^^xsd:string ;
+  geo:location [
+      rdf:type geo:Point ;
+      :altMSL "76"^^xsd:string ;
+      :minimumDistanceFromSea "2650"^^xsd:float ;
+      geo:lat "40.611409"^^xsd:string ;
+      geo:long "22.986070"^^xsd:string ;
+    ] ;
+.
+:VeryHigh
+  rdf:type :AirPollutionLevels ;
+  :airPollutionLevelIsBetterThan :Severe ;
+  rdfs:label "Very high"^^xsd:string ;
+  rdfs:label "Υψηλά@el"^^xsd:string ;
+.
+:airPollutionLevelIsBetterThan
+  rdf:type owl:TransitiveProperty ;
+  rdfs:domain :AirPollutionLevels ;
+  rdfs:label "air pollution level is better than"^^xsd:string ;
+  rdfs:range :AirPollutionLevels ;
+.
+:altMSL
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "The altitude of a SpatialThing, in meters, above Mean Sea Level."^^xsd:string ;
+  rdfs:domain geo:SpatialThing ;
+  rdfs:label "altitude" ;
+.
+:establishedInYear
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain :MeasuringStation ;
+  rdfs:label "year of establishment"^^xsd:string ;
+  rdfs:range xsd:gYear ;
+.
+:estimateForNetwork
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :AirPollutionQualityEstimate ;
+  rdfs:label "estimate for network"^^xsd:string ;
+  rdfs:range :MeasuringStationNetwork ;
+.
+:measurementDate
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain :AirPollutionMeasurement ;
+  rdfs:label "measurement date"^^xsd:string ;
+  rdfs:range xsd:date ;
+.
+:measurementFromStation
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :AirPollutionNumericalMeasurement ;
+  rdfs:label "measurement from station"^^xsd:string ;
+  rdfs:range :MeasuringStation ;
+.
+:measurementOfPollutant
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :AirPollutionNumericalMeasurement ;
+  rdfs:label "measurement of pollutant"^^xsd:string ;
+  rdfs:range :AirPollutant ;
+.
+:measurementValue
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain :AirPollutionNumericalMeasurement ;
+  rdfs:label "measurement value"^^xsd:string ;
+  rdfs:range xsd:float ;
+.
+:minimumDistanceFromSea
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "The minimum distance of a SpatialThing from the sea, in meters."^^xsd:string ;
+  rdfs:domain geo:SpatialThing ;
+  rdfs:label "Minimum Distance From Sea"^^xsd:string ;
+  rdfs:range xsd:float ;
+.
+:qualityEstimateValue
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :AirPollutionQualityEstimate ;
+  rdfs:label "estimate for network"^^xsd:string ;
+  rdfs:range :AirPollutionLevels ;
+.
+:stationBelongsToNetwork
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain :MeasuringStation ;
+  rdfs:label "station belongs to network"^^xsd:string ;
+  rdfs:range :MeasuringStationNetwork ;
+.

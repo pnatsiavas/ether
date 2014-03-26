@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="8dip"
+    android:background="@drawable/back_transp"
+    >
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:cropToPadding="false"
+        android:layout_marginTop="2dip"
+        android:scaleType="fitXY"
+     />
+
+    <ImageView
+        android:id="@+id/plotView1"
+        android:layout_width="match_parent"
+		android:layout_height="90dip"
+        android:layout_alignParentLeft="true"
+        
+        android:layout_below="@+id/imageView1"
+       />
+
+    <TextView
+        android:id="@+id/update"
+        style="@android:style/TextAppearance.Small"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_margin="8dip"
+        android:layout_toRightOf="@+id/imageView1"       
+        android:text="Παρακαλώ περιμένετε..."
+        android:textSize="11sp" 
+         android:gravity="center"/>
+    
+    
+    <TextView
+        android:id="@+id/graphTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="20dip"
+        android:paddingTop="7dip"
+        style="@android:style/TextAppearance.Small"
+        android:layout_below="@+id/plotView1"
+        android:gravity="center_horizontal|center_vertical"
+        android:text=""
+        android:textSize="11sp"
+        android:layout_marginTop="6dip" />
+
+</RelativeLayout>

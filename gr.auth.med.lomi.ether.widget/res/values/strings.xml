@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Ether Widget</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="button_send">button_send</string>
+    <string name="graph_activity">graph_activity</string>
+    <string name="HIST_GRAPH">History Graph</string>
+    <string name="emission">μg/m3</string>
+    
+    
+
+</resources>
