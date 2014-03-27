@@ -1,16 +1,7 @@
 <?php
 // Report simple running errors
 error_reporting(E_ERROR | E_PARSE);
-require_once("config.php");
-require_once("lib/dblib.php");
-require_once("lib/gglib.php");
-$dbh=db_connect($CFG->dbhost,$CFG->dbname,$CFG->dbuser,$CFG->dbpass);
-db_query("USE ".$CFG->dbname.";", $dbh);
 
-$GLOBALS["DBH"]=$dbh;
-
-define("RDFAPI_INCLUDE_DIR", "C:/Apache Software Foundation/Apache2.2/rest/lib/rdfapi-php/api/");
-include(RDFAPI_INCLUDE_DIR . "RDFAPI.php");
 //------------------------------------------header end---------------------------------------------
 
 function getJSON($data,$measLabel="",$station=""){
